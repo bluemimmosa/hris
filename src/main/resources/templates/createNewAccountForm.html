@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Registration</title>
+<style type="text/css">
+    label {
+        display: inline-block;
+        width: 200px;
+        margin: 5px;
+        text-align: left;
+    }
+    input[type=text], input[type=password], select {
+        display: inline-block;
+        width: 200px;
+    }
+    input[type=radio] {
+        margin-left: 45px;
+    }
+    input[type=checkbox] {
+        margin-right: 190px;
+    }  
+    button {
+        padding: 5px;
+        margin: 10px;
+    }
+</style>
+</head>
+<body>
+<div align="center">
+    <h1>Employee Registration</h1>
+    <form action="#" th:action="@{/employee/newEmployeeProcess}" method="post" th:object="${newEmployee}">
+        <label>Emp Id:</label>
+        <input type="text" th:field="*{empId}" /><br/>
+ 
+        <label>Name:</label>
+        <input type="text" th:field="*{name}" /><br/>
+ 
+        
+ 
+        <label>Birthday (yyyy-mm-dd):</label>
+        <input type="text" th:field="*{dob}" /><br/>
+ 
+        <label>Gender:</label>
+        <input type="radio" th:field="*{gender}" value="M" />Male
+        <input type="radio" th:field="*{gender}" value="F" />Female<br/>
+ 
+<!--        <label>Profession:</label>
+        <select th:field="*{profession}">
+            <option th:each="p : ${listProfession}" th:value="${p}" th:text="${p}" />
+        </select>
+        <br/>-->
+ 
+<label>Maritial Status</label><div>
+        <input type="radio" th:field="*{maritial}" value="Un Married" />Un Married
+        <input type="radio" th:field="*{maritial}" value="Married" />Married
+        <input type="radio" th:field="*{maritial}" value="Seperated" />Seperated
+        <input type="radio" th:field="*{maritial}" value="Divorced" />Divorced
+        <input type="radio" th:field="*{maritial}" value="Widowed" />Widowed<br/>
+</div>
+ 
+        <button type="submit">Register</button>    
+    </form>
+</div>
+</body>
+</html>
